@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.hero-banner {
+    background: url('images/hero-banner.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.category-card, .product-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover, .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.newsletter {
+    background: #007bff;
+}
+
+footer a:hover {
+    color: #ffdd57;
+}
