@@ -1,40 +1,186 @@
+/* Global Styles */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.5;
+    background: linear-gradient(to bottom, #e0f7fa 50%, #e1bee7 100%);
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    
+
+/* Navbar */
+.navbar {
+    padding: 10px 20px;
 }
 
 .navbar-brand {
-    font-size: 1.5em;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
+/* Hero Banner */
 .hero-banner {
-    background: url('images/hero-banner.jpg') no-repeat center center/cover;
-    height: 70vh;
+    background: url('DSC_2629.svg') no-repeat center center/cover;
+    height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: #fff;
+    position: relative;
+    filter: contrast(1.1) brightness(0.9); /* Adjust contrast and brightness */
 }
 
-.hero-content {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 5px;
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
 }
 
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero-content .btn-primary {
+    padding: 12px 24px;
+    font-size: 1rem;
+}
+
+/* Section Titles */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Categories and Products Section */
 .category-card, .product-card {
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
-.category-card:hover, .product-card:hover {
+.category-card img, .product-card img {
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.category-card:hover img, .product-card:hover img {
     transform: scale(1.05);
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
 
+.category-card .card-body, .product-card .card-body {
+    padding: 10px 5px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+/* Featured Products */
+#shop .product-card {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .card-body p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #007bff;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Newsletter Subscription */
 .newsletter {
-    background: #007bff;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.newsletter h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter p {
+    font-size: 1rem;
+}
+
+.newsletter input[type="email"] {
+    width: 300px;
+    max-width: 100%;
+}
+
+/* Footer */
+footer {
+    font-size: 0.9rem;
+}
+
+footer h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+footer p, footer a {
+    color: #bbb;
 }
 
 footer a:hover {
-    color: #ffdd57;
+    color: #fff;
+}
+
+/* Reduce Spacing Between Components */
+.container, .container-fluid {
+    margin-bottom: 1.5rem;
+}
+
+section.container.my-5 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    margin-bottom: 1rem;
+}
+
+.newsletter {
+    margin-top: 1.5rem;
+}
+
+footer {
+    margin-top: 1rem;
+    padding: 1.5rem;
+    background-color: #212529;
+}
+
+/* Small Adjustments for Mobile */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .newsletter input[type="email"] {
+        width: 100%;
+    }
+
+    .category-card, .product-card {
+        margin-bottom: 1rem;
+    }
+}
 }
