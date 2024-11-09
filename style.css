@@ -228,3 +228,96 @@ footer {
     }
 }
 }
+/* General styling for section headings */
+h2 {
+    font-family: 'Times New Roman', Times, serif; /* Roman-style serif font */
+    font-weight: bold; /* Bold for emphasis */
+    font-size: 2.5rem; /* Large font size */
+    color: #333; /* Darker color for visibility */
+    text-align: center; /* Center align for a cleaner look */
+    margin-bottom: 1.5rem; /* Add space below the headings */
+    text-transform: uppercase; /* Optional: to make it all uppercase */
+    letter-spacing: 1px; /* Slight spacing for elegance */
+}
+
+/* Additional spacing for headings specifically in Explore Categories and Featured Products */
+#shop h2, .container h2 {
+    margin-top: 1rem; /* Add spacing above the headings */
+}
+/* Basic setup for the slider */
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Adjust height as necessary */
+    overflow: hidden;
+}
+
+.image-slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    animation: slide 16s infinite;
+}
+
+/*keyframes for the slider animation for handicraft*/
+@keyframes slideImagesCategory1 {
+    0% { background-image: url("images/Handicraft.jpg"); }
+    25% { background-image: url("images/Handicraft2.webp"); }
+    50% { background-image: url("images/Handicraft3.webp"); }
+    75% { background-image: url("images/Handicraft4.webp"); }
+    100% { background-image: url("images/Handicraft.jpg"); }
+}
+
+@keyframes slideImagesCategory2 {
+    0% { background-image: url("images.handicraft/Handicraft.jpg"); }
+    25% { background-image: url("images.handicraft/Handicraft2.webp"); }
+    50% { background-image: url("images.handicraft/Handicraft3.webp"); }
+    75% { background-image: url("images.handicraft/Handicraft3.webp"); }
+    100% { background-image: url("images.handicraft/Handicraft.jpg"); }
+}
+
+
+.category-card-1 {
+    animation: slideImagesCategory1 10s infinite;
+    background-size: cover;
+    background-position: center;
+}
+
+.category-card-2 {
+    animation: slideImagesCategory2 10s infinite;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Increase the size of category cards */
+.category-card {
+    height: 400px; /* Adjust height to appear bigger */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.category-card .image-slider img {
+    width: 100%; /* Ensure images cover the entire card */
+    height: 100%;
+    object-fit: cover;
+}
+
+.category-card .card-title {
+    font-size: 1.5rem; /* Larger title font size */
+    font-weight: bold;
+}
+
+.row.text-center .col-md-6 {
+    padding: 0 15px; /* Optional: Add some space between the cards */
+}
+
+/* Styling for the section title to differentiate it from products */
+h2.text-center {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
