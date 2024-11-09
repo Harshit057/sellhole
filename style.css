@@ -90,6 +90,50 @@ h2 {
     font-weight: 500;
     color: #007bff;
 }
+/* Make all product cards in Featured Products the same size */
+.product-card {
+    height: 100%; /* Full height to align cards */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    height: 200px; /* Set fixed height for images */
+    object-fit: cover; /* Cover image without distortion */
+}
+
+.product-card .card-body {
+    flex-grow: 1; /* Fill the remaining space for text and button alignment */
+}
+
+/* Adjust Explore Categories section to look larger and more cohesive */
+.category-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-card img {
+    height: 250px; /* Larger images for categories */
+    object-fit: cover;
+    width: 100%;
+}
+
+.category-card .card-body {
+    padding: 15px;
+}
+
+.category-card h5 {
+    font-size: 1.5rem; /* Increase font size for category titles */
+    font-weight: bold;
+}
+
+/* Center-align all cards for consistency */
+.card {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
 
 /* Button Styles */
 .btn-primary {
