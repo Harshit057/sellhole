@@ -260,20 +260,20 @@ h2 {
     animation: slide 16s infinite;
 }
 
-/*keyframes for the slider animation for handicraft*/
+/*keyframes for the slider animation for agriculture*/
 @keyframes slideImagesCategory1 {
-    0% { background-image: url("images/Handicraft.jpg"); }
-    25% { background-image: url("images/Handicraft2.webp"); }
-    50% { background-image: url("images/Handicraft3.webp"); }
-    75% { background-image: url("images/Handicraft4.webp"); }
-    100% { background-image: url("images/Handicraft.jpg"); }
+    0% { background-image: url("images.agri/agri.jpg"); }
+    25% { background-image: url("images.agri/agri2.webp"); }
+    50% { background-image: url("images.agri/agri3.webp"); }
+    75% { background-image: url("images.agri/agri4.webp"); }
+    100% { background-image: url("images.agri/agri.jpg"); }
 }
-
+/*keyframes for the slider animation for handicraft*/
 @keyframes slideImagesCategory2 {
     0% { background-image: url("images.handicraft/Handicraft.jpg"); }
     25% { background-image: url("images.handicraft/Handicraft2.webp"); }
     50% { background-image: url("images.handicraft/Handicraft3.webp"); }
-    75% { background-image: url("images.handicraft/Handicraft3.webp"); }
+    75% { background-image: url("images.handicraft/Handicraft4.webp"); }
     100% { background-image: url("images.handicraft/Handicraft.jpg"); }
 }
 
