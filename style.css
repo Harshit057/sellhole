@@ -321,3 +321,15 @@ h2.text-center {
     font-weight: bold;
     margin-bottom: 20px;
 }
+ 
+/*-- headers as buttons --*/
+.btn-link {
+    color: #007bff; /* Bootstrap primary color for link */
+    cursor: pointer;
+    text-decoration: underline;
+}
+.btn-link:hover {
+    text-decoration: none;
+    color: #0056b3; /* Darker shade for hover effect */
+}
+
