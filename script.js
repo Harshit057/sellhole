@@ -8,10 +8,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+
 // Sticky Navbar on Scroll
 window.onscroll = function() {
     let navbar = document.querySelector(".navbar");
-    if (window.pageYOffset > 50) {
+    if (window.scrollX > 50) {
         navbar.classList.add("sticky-nav");
     } else {
         navbar.classList.remove("sticky-nav");

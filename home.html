@@ -6,28 +6,14 @@
     <title>SellHole - Connecting Vendors Across Cities</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="navbar.css">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="home.images/favicon.webp">
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="#">SellHole</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Deals</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Cart</a></li>
-        </ul>
-    </div>
-</nav>
+<!-- Navbar Container -->
+<div id="navbar-container"></div>
 
 <!-- Hero Banner -->
 <div class="container-fluid hero-banner text-center text-white">
@@ -40,11 +26,11 @@
 
 <!-- Categories Section -->
 <section class="container my-5">
-   <!-- Explore Categories Header as Button -->
-   <a href="categories.html" class="text-decoration-none">
-    <h2 class="text-center mb-4 btn-link">Explore Categories</h2>
-</a>
-<div class="row text-center">
+    <!-- Explore Categories Header as Button -->
+    <a href="categories.html" class="text-decoration-none">
+        <h2 class="text-center mb-4 btn-link">Explore Categories</h2>
+    </a>
+    <div class="row text-center">
         <!-- Agriculture Category Card -->
         <div class="col-md-6 mb-4">
             <a href="agriculture.html" class="text-decoration-none"> <!-- Link to Agriculture page -->
@@ -81,14 +67,13 @@
     </div>
 </section>
 
-
 <!-- Featured Products Section -->
 <section class="container my-5" id="shop">
-   <!-- Featured Products Header as Button -->
-   <a href="featured-products.html" class="text-decoration-none">
-    <h2 class="text-center mb-4 btn-link">Featured Products</h2>
-</a>
-<div class="row">
+    <!-- Featured Products Header as Button -->
+    <a href="featured-products.html" class="text-decoration-none">
+        <h2 class="text-center mb-4 btn-link">Featured Products</h2>
+    </a>
+    <div class="row">
         <!-- Product 1 -->
         <div class="col-md-3 mb-4">
             <div class="card product-card">
@@ -116,7 +101,7 @@
         <!-- Product 3 -->
         <div class="col-md-3 mb-4">
             <div class="card product-card">
-                <img src="images.handicraft/potrry.webp"class="card-img-top" alt="Organic Wheat">
+                <img src="images.handicraft/potrry.webp" class="card-img-top" alt="Handcrafted Pottery">
                 <div class="card-body text-center">
                     <h5 class="card-title">Handcrafted Pottery</h5>
                     <p class="card-text">$50</p>
@@ -227,5 +212,14 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script>
+    // Fetch and load navbar from navbar.html
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+</script>
 </body>
 </html>
