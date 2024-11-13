@@ -1,62 +1,92 @@
 // cart.js
 
-// Initialize cart if not already set in localStorage
-if (!localStorage.getItem("cart")) {
-    localStorage.setItem("cart", JSON.stringify([]));
-}
+// Initialize cart from localStorage or start with an empty cart
+let cart = JSON.parse(localStorage.getItem("cart")) || {};
 
-// Function to add item to the cart
-function addToCart(product) {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    let itemIndex = cart.findIndex(item => item.name === product.name);
-
-    if (itemIndex > -1) {
-        cart[itemIndex].quantity += 1; // Increase quantity if item exists
-    } else {
-        cart.push({ ...product, quantity: 1 }); // Add new item
-    }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${product.name} has been added to the cart!`);
-}
-
-// Function to render cart items on the cart page
+// Function to render items in the cart
 function renderCart() {
-    let cart = JSON.parse(localStorage.getItem("cart"));
     const cartItemsContainer = document.getElementById("cart-items");
-
     cartItemsContainer.innerHTML = "";
 
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
-        return;
-    }
+    let total = 0;
+    for (const [productId, item] of Object.entries(cart)) {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
 
-    cart.forEach((item, index) => {
+        // Render each cart item as a card with image, name, and quantity controls
         cartItemsContainer.innerHTML += `
-            <div class="cart-item">
-                <h5>${item.name}</h5>
-                <p>Price: $${item.price}</p>
-                <p>Quantity: ${item.quantity}</p>
-                <button onclick="removeFromCart(${index})">Remove</button>
+            <div class="cart-item card mb-3">
+                <div class="row no-gutters align-items-center">
+                    <div class="col-md-2">
+                        <img src="${item.image}" class="card-img" alt="${item.name}">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card-body">
+                            <h5 class="card-title">${item.name}</h5>
+                            <p class="card-text">$${item.price}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <div class="quantity-controls">
+                            <button class="btn btn-secondary" onclick="decreaseQuantity('${productId}')">-</button>
+                            <span class="mx-2">${item.quantity}</span>
+                            <button class="btn btn-secondary" onclick="increaseQuantity('${productId}')">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3 text-right">
+                        <p class="card-text"><strong>$${itemTotal}</strong></p>
+                    </div>
+                </div>
             </div>
         `;
-    });
+    }
 
-    updateTotal();
-}
-
-// Function to update total price
-function updateTotal() {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
     document.getElementById("total-price").textContent = `Total: $${total}`;
 }
 
-// Function to remove an item from the cart
-function removeFromCart(index) {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    cart.splice(index, 1);
+// Function to update localStorage and re-render cart
+function updateCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
     renderCart();
 }
+
+// Increase item quantity
+function increaseQuantity(productId) {
+    cart[productId].quantity += 1;
+    updateCart();
+}
+
+// Decrease item quantity
+function decreaseQuantity(productId) {
+    if (cart[productId].quantity > 1) {
+        cart[productId].quantity -= 1;
+    } else {
+        delete cart[productId];
+    }
+    updateCart();
+}
+
+// Add item to cart or show quantity selector
+function addToCart(productId, productName, productPrice, productImage) {
+    if (!cart[productId]) {
+        cart[productId] = {
+            name: productName,
+            price: productPrice,
+            quantity: 1,
+            image: productImage
+        };
+    }
+
+    // Transform button to quantity controls on the product page
+    const buttonContainer = document.getElementById(`button-${productId}`);
+    buttonContainer.innerHTML = `
+        <button class="btn btn-secondary" onclick="decreaseQuantity('${productId}')">-</button>
+        <span class="mx-2">${cart[productId].quantity}</span>
+        <button class="btn btn-secondary" onclick="increaseQuantity('${productId}')">+</button>
+    `;
+
+    updateCart();
+}
+
+// Call renderCart on page load to populate cart data if it exists
+document.addEventListener("DOMContentLoaded", renderCart);
