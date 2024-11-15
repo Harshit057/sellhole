@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="navbar.css">
-    <script src="cart.js"></script>
     <script src="script.js"></script>
 
     <!-- Favicon -->
@@ -78,14 +77,24 @@
     </a>
     <div class="row">
         <!-- Product 1 -->
-        <div class="col-md-3 mb-4">
+        <div class="col-md-3 mb-4" id="fresh-corn-cob">
             <div class="card product-card">
                 <img src="images.agri/fresh-corn-cob.webp" class="card-img-top" alt="Fresh Produce">
                 <div class="card-body text-center">
                     <h5 class="card-title">Fresh Produce</h5>
                     <p class="card-text">$45</p>
                     <div id="button-fresh-corn-cob">
-                        <button class="btn btn-primary" onclick="addToCart('fresh-corn-cob', 'Fresh Produce', 45)">Add to Cart</button>
+                        <button class="btn btn-primary add-to-cart-btn" 
+                                data-product-id="fresh-corn-cob" 
+                                data-product-name="Fresh Produce" 
+                                data-product-price="45">
+                            Add to Cart
+                        </button>
+                        <div class="quantity-container d-none">
+                            <button class="decrease-btn btn btn-outline-secondary" data-product-id="fresh-corn-cob">-</button>
+                            <span class="quantity-display">1</span>
+                            <button class="increase-btn btn btn-outline-secondary" data-product-id="fresh-corn-cob">+</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -98,7 +107,22 @@
                 <div class="card-body text-center">
                     <h5 class="card-title">Organic Wheat</h5>
                     <p class="card-text">$30</p>
-                    <button class="btn btn-primary" onclick="addToCart('wheat', 'Organic Wheat', 30)">Add to Cart</button>
+                    <button 
+                    class="add-to-cart-btn btn btn-primary" 
+                    data-product-id="1" 
+                    data-product-name="Organic Wheat" 
+                    data-product-price="30" 
+                    data-product-image="image.agri/wheat.webp">
+                    Add to Cart
+                </button>
+                <div 
+                    class="quantity-container" 
+                    data-product-id="1" 
+                    style="display: none;">
+                    <button class="decrease-btn btn btn-outline-secondary" data-product-id="1">-</button>
+                    <span class="quantity-display">1</span>
+                    <button class="increase-btn btn btn-outline-secondary" data-product-id="1">+</button>
+                </div>
                 </div>
             </div>
         </div>
