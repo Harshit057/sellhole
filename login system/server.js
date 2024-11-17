@@ -6,7 +6,6 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("Error connecting to MongoDB:", err));
 const express = require('express');
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
