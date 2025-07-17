@@ -84,6 +84,9 @@ const SellerDashboard = () => {
             </div>
             <div className="flex-1">
               <div className="mb-2">Payment Method: <span className="font-semibold">UPI</span></div>
+              <div className="flex gap-2 mb-2">
+                <button className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Add/Edit Payment Method</button>
+              </div>
               <button className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700">Request Withdrawal</button>
             </div>
           </div>
