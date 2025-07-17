@@ -7,8 +7,11 @@ const SetupAccount = () => {
 
   const handleSelect = (selectedRole) => {
     setRole(selectedRole);
-    alert(`Role selected: ${selectedRole}`);
-    // navigate('/dashboard');
+    if (selectedRole === 'seller') {
+      navigate('/seller-dashboard');
+    } else {
+      navigate('/buyer-dashboard');
+    }
   };
 
   return (
@@ -33,6 +36,12 @@ const SetupAccount = () => {
               <path d="M18 24c2 2 10 2 12 0" stroke="#2E7D32" fill="none" />
             </svg>
           </div>
+          <button
+            className="mt-8 w-full bg-gradient-to-r from-[#2E7D32] to-[#66BB6A] text-white py-3 rounded-xl font-semibold shadow-lg hover:from-green-700 hover:to-green-500 transition-all duration-200 text-lg"
+            onClick={() => handleSelect('seller')}
+          >
+            Continue
+          </button>
         </div>
       </div>
 
@@ -54,6 +63,12 @@ const SetupAccount = () => {
               <rect x="18" y="30" width="12" height="8" fill="#66BB6A" stroke="#fff" />
             </svg>
           </div>
+          <button
+            className="mt-8 w-full bg-gradient-to-r from-[#2E7D32] to-[#66BB6A] text-white py-3 rounded-xl font-semibold shadow-lg hover:from-green-700 hover:to-green-500 transition-all duration-200 text-lg"
+            onClick={() => handleSelect('buyer')}
+          >
+            Continue
+          </button>
         </div>
       </div>
 

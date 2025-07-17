@@ -14,6 +14,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Cart from './components/Cart';
 import SetupAccount from './components/SetupAccount';
+import SellerDashboard from './pages/SellerDashboard';
+import BuyerDashboard from './pages/BuyerDashboard';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
             <Route path="/news" element={<News />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/setup-account" element={<SetupAccount />} />
+            <Route path="/seller-dashboard" element={<SellerDashboard />} />
+            <Route path="/buyer-dashboard" element={<BuyerDashboard />} />
           </Routes>
         </main>
         <Footer />
