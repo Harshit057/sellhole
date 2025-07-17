@@ -40,10 +40,10 @@ const About = () => {
       <section className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            About MittiKart
+            About आपनGaon
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            MittiKart is a digital bridge connecting rural India to urban markets. We give farmers and artisans a platform to sell directly — empowering them, and offering you authentic, ethical products.
+            आपनGaon is a digital bridge connecting rural India to urban markets. We give farmers and artisans a platform to sell directly — empowering them, and offering you authentic, ethical products.
           </p>
         </div>
       </section>
@@ -57,7 +57,7 @@ const About = () => {
               Our mission is to transform how rural products reach urban homes. By eliminating intermediaries, we ensure fair prices for rural producers and authentic quality for consumers.
             </p>
             <p className="text-lg text-gray-600">
-              From vegetables grown by small-scale farmers to beautiful crafts made by local artisans, MittiKart brings their efforts online — giving them visibility, respect, and income.
+              From vegetables grown by small-scale farmers to beautiful crafts made by local artisans, आपनGaon brings their efforts online — giving them visibility, respect, and income.
             </p>
           </div>
           <div className="bg-white rounded-2xl p-8 shadow-xl grid grid-cols-2 gap-6">
@@ -86,7 +86,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Journey of a Product</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-16">
-            Every item on MittiKart carries a story — of hard work, authenticity, and rural transformation. Here's how we take a handmade craft or a farm harvest from a remote village to your doorstep.
+            Every item on आपनGaon carries a story — of hard work, authenticity, and rural transformation. Here's how we take a handmade craft or a farm harvest from a remote village to your doorstep.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
@@ -99,13 +99,13 @@ const About = () => {
             <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 shadow-md hover:shadow-lg transition">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">📸 Step 2: Verified & Listed</h3>
               <p className="text-gray-600">
-                Through our mobile onboarding or local MittiKart agent, the vendor uploads product photos, sets fair prices, and gets verified for quality and trustworthiness.
+                Through our mobile onboarding or local आपनGaon agent, the vendor uploads product photos, sets fair prices, and gets verified for quality and trustworthiness.
               </p>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 shadow-md hover:shadow-lg transition">
               <h3 className="text-xl font-semibold text-gray-800 mb-2">🛒 Step 3: You Place an Order</h3>
               <p className="text-gray-600">
-                A buyer from Delhi browses MittiKart and chooses the artisan’s figurine or the farmer’s turmeric. With a single click, a fair transaction begins — with no middlemen.
+                A buyer from Delhi browses आपनGaon and chooses the artisan’s figurine or the farmer’s turmeric. With a single click, a fair transaction begins — with no middlemen.
               </p>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 shadow-md hover:shadow-lg transition">
@@ -117,7 +117,7 @@ const About = () => {
           </div>
 
           <p className="text-lg text-gray-700 mt-16 max-w-3xl mx-auto">
-            This cycle doesn’t just sell a product — it builds dignity, boosts rural incomes, and brings transparency to trade. With MittiKart, every order becomes a story of empowerment.
+            This cycle doesn’t just sell a product — it builds dignity, boosts rural incomes, and brings transparency to trade. With आपनGaon, every order becomes a story of empowerment.
           </p>
         </div>
       </section>
@@ -127,7 +127,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">What Makes Us Different</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-16">
-            We’re not just selling products — we’re selling stories, cultures, and livelihoods. Here’s what defines MittiKart.
+            We’re not just selling products — we’re selling stories, cultures, and livelihoods. Here’s what defines आपनGaon.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -153,7 +153,7 @@ const About = () => {
             <a href="/products" className="bg-white text-green-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-200">
               Explore Products
             </a>
-            <a href="/contact" className="bg-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-800 transition duration-200">
+            <a href="/login?mode=signup" className="bg-green-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-800 transition duration-200">
               Become a Partner
             </a>
           </div>

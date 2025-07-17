@@ -11,10 +11,10 @@ const Footer = () => {
       { name: 'News', href: '/news' },
     ],
     products: [
-      { name: 'Handicrafts', href: '/products/handicrafts' },
-      { name: 'Organic Produce', href: '/products/organic-produce' },
-      { name: 'Traditional Clothing', href: '/products/traditional-clothing' },
-      { name: 'Pottery', href: '/products/pottery' },
+      { name: 'Handicrafts', category: 'handicrafts' },
+      { name: 'Organic Produce', category: 'organic' },
+      { name: 'Traditional Clothing', category: 'clothing' },
+      { name: 'Pottery', category: 'pottery' },
     ],
     support: [
       { name: 'Help Center', href: '#' },
@@ -45,7 +45,7 @@ const Footer = () => {
       href: '#',
       icon: (
         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-          <path fillRule="evenodd" d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987c6.62 0 11.987-5.367 11.987-11.987C24.014 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.743 13.777 3.743 12.48c0-1.297.455-2.415 1.383-3.312.896-.897 2.047-1.383 3.323-1.383 1.297 0 2.448.486 3.344 1.383.896.897 1.362 2.015 1.362 3.312 0 1.297-.466 2.415-1.362 3.311-.896.807-2.047 1.297-3.344 1.297zm7.718 0c-1.297 0-2.448-.49-3.323-1.297-.928-.896-1.383-2.014-1.383-3.311 0-1.297.455-2.415 1.383-3.312.875-.897 2.026-1.383 3.323-1.383 1.276 0 2.427.486 3.323 1.383.928.897 1.383 2.015 1.383 3.312 0 1.297-.455 2.415-1.383 3.311-.896.807-2.047 1.297-3.323 1.297z" clipRule="evenodd" />
+          <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5zm4.25 2.25a5.25 5.25 0 1 1-5.25 5.25A5.25 5.25 0 0 1 12 5.75zm0 1.5a3.75 3.75 0 1 0 3.75 3.75A3.75 3.75 0 0 0 12 7.25zm5.5-.75a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.5 6.5z" />
         </svg>
       ),
     },
@@ -59,11 +59,11 @@ const Footer = () => {
       ),
     },
     {
-      name: 'GitHub',
-      href: '#',
+      name: 'YouTube',
+      href: 'https://www.youtube.com/',
       icon: (
         <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-          <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+          <path d="M23.498 6.186a2.994 2.994 0 0 0-2.107-2.12C19.425 3.5 12 3.5 12 3.5s-7.425 0-9.391.566A2.994 2.994 0 0 0 .502 6.186C0 8.153 0 12 0 12s0 3.847.502 5.814a2.994 2.994 0 0 0 2.107 2.12C4.575 20.5 12 20.5 12 20.5s7.425 0 9.391-.566a2.994 2.994 0 0 0 2.107-2.12C24 15.847 24 12 24 12s0-3.847-.502-5.814zM9.75 15.568V8.432L15.818 12 9.75 15.568z" />
         </svg>
       ),
     },
@@ -78,14 +78,19 @@ const Footer = () => {
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
             <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                {/* Leaf icon for farm/marketplace theme */}
+              <div className="w-10 h-10 bg-gradient-to-r from-green-600 to-green-400 rounded-xl flex items-center justify-center">
+                {/* Combined agriculture (leaf) and handicrafts (thread & needle) icon */}
                 <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  {/* Leaf for agriculture */}
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2C7 7 2 12 12 22C22 12 17 7 12 2Z" />
+                  {/* Thread & needle for handicrafts/art */}
+                  <circle cx="16.5" cy="7.5" r="2.5" stroke="#fff" strokeWidth="1.2" fill="none" />
+                  <path d="M15.2 8.8c1.2 1.2 2.6 3.2 2.6 5.2" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
+                  <rect x="17.2" y="5.2" width="0.7" height="4" rx="0.3" transform="rotate(45 17.2 5.2)" fill="#fff" />
                 </svg>
               </div>
-              <span className="text-2xl font-bold text-white">
-                MittiKart
+              <span className="text-2xl font-bold text-green-200">
+                आपनGaon
               </span>
             </Link>
             <p className="text-gray-300 text-base">
@@ -96,7 +101,9 @@ const Footer = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-400 hover:text-gray-300 transition-colors duration-200"
+                  className="text-green-400 hover:text-green-600 transition-colors duration-200"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <span className="sr-only">{item.name}</span>
                   {item.icon}
@@ -131,7 +138,7 @@ const Footer = () => {
                   {footerLinks.products.map((item) => (
                     <li key={item.name}>
                       <Link
-                        to={item.href}
+                        to={`/products?category=${encodeURIComponent(item.category)}`}
                         className="text-base text-gray-300 hover:text-white transition-colors duration-200"
                       >
                         {item.name}
@@ -187,7 +194,7 @@ const Footer = () => {
               </p>
             </div>
             <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-              &copy; {currentYear} MittiKart. All rights reserved.
+              &copy; {currentYear} आपनGaon. All rights reserved.
             </p>
           </div>
         </div>

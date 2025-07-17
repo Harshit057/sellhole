@@ -1,7 +1,10 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import OtpVerification from './OtpVerification';
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true)
   const [formData, setFormData] = useState({
     email: '',
@@ -9,7 +12,16 @@ const Login = () => {
     confirmPassword: '',
     name: ''
   })
+
+  // Switch to signup mode if ?mode=signup is in the URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('mode') === 'signup') {
+      setIsLogin(false);
+    }
+  }, [location.search]);
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showOtp, setShowOtp] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -21,11 +33,14 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    // Simulate API call
+    // Simulate API call and sending OTP
     setTimeout(() => {
       setIsSubmitting(false)
-      alert(`${isLogin ? 'Login' : 'Registration'} successful!`)
+      if (!isLogin) {
+        setShowOtp(true);
+      } else {
+        alert('Login successful!')
+      }
     }, 2000)
   }
 
@@ -39,26 +54,44 @@ const Login = () => {
     })
   }
 
+  if (showOtp && !isLogin) {
+    return (
+      <OtpVerification
+        email={formData.email}
+        onVerified={() => navigate('/setup-account')}
+      />
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-green-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-xl">S</span>
+            <div className="w-12 h-12 bg-gradient-to-r from-green-600 to-green-400 rounded-xl flex items-center justify-center">
+              {/* Combined agriculture (leaf) and handicrafts (thread & needle) icon */}
+              <svg className="h-9 w-9 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {/* Leaf for agriculture */}
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 2C7 7 2 12 12 22C22 12 17 7 12 2Z" />
+                {/* Thread & needle for handicrafts/art */}
+                <circle cx="16.5" cy="7.5" r="2.5" stroke="#fff" strokeWidth="1.2" fill="none" />
+                <path d="M15.2 8.8c1.2 1.2 2.6 3.2 2.6 5.2" stroke="#fff" strokeWidth="1.2" strokeLinecap="round" />
+                <rect x="17.2" y="5.2" width="0.7" height="4" rx="0.3" transform="rotate(45 17.2 5.2)" fill="#fff" />
+              </svg>
             </div>
+            <span className="text-2xl font-bold bg-gradient-to-r from-green-700 to-green-400 bg-clip-text text-transparent">आपनGaon</span>
           </Link>
         </div>
-        <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
+        <h2 className="mt-6 text-center text-3xl font-bold text-green-900">
           {isLogin ? 'Sign in to your account' : 'Create your account'}
         </h2>
-        <p className="mt-2 text-center text-sm text-gray-600">
+        <p className="mt-2 text-center text-sm text-green-700">
           {isLogin ? (
             <>
               Don't have an account?{' '}
               <button
                 onClick={toggleMode}
-                className="font-medium text-blue-600 hover:text-blue-500"
+                className="font-medium text-green-600 hover:text-green-500"
               >
                 Sign up here
               </button>
@@ -68,7 +101,7 @@ const Login = () => {
               Already have an account?{' '}
               <button
                 onClick={toggleMode}
-                className="font-medium text-blue-600 hover:text-blue-500"
+                className="font-medium text-green-600 hover:text-green-500"
               >
                 Sign in here
               </button>
@@ -82,7 +115,7 @@ const Login = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             {!isLogin && (
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="name" className="block text-sm font-medium text-green-900">
                   Full Name
                 </label>
                 <div className="mt-1">
@@ -93,7 +126,7 @@ const Login = () => {
                     required={!isLogin}
                     value={formData.name}
                     onChange={handleChange}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="appearance-none block w-full px-3 py-2 border border-green-300 rounded-md placeholder-green-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                     placeholder="John Doe"
                   />
                 </div>
@@ -101,7 +134,7 @@ const Login = () => {
             )}
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="email" className="block text-sm font-medium text-green-900">
                 Email address
               </label>
               <div className="mt-1">
@@ -113,14 +146,14 @@ const Login = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="appearance-none block w-full px-3 py-2 border border-green-300 rounded-md placeholder-green-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                   placeholder="john@example.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="password" className="block text-sm font-medium text-green-900">
                 Password
               </label>
               <div className="mt-1">
@@ -132,7 +165,7 @@ const Login = () => {
                   required
                   value={formData.password}
                   onChange={handleChange}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="appearance-none block w-full px-3 py-2 border border-green-300 rounded-md placeholder-green-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                   placeholder="••••••••"
                 />
               </div>
@@ -140,7 +173,7 @@ const Login = () => {
 
             {!isLogin && (
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-green-900">
                   Confirm Password
                 </label>
                 <div className="mt-1">
@@ -152,7 +185,7 @@ const Login = () => {
                     required={!isLogin}
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                    className="appearance-none block w-full px-3 py-2 border border-green-300 rounded-md placeholder-green-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                     placeholder="••••••••"
                   />
                 </div>
@@ -166,15 +199,15 @@ const Login = () => {
                     id="remember-me"
                     name="remember-me"
                     type="checkbox"
-                    className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+                    className="h-4 w-4 text-green-600 focus:ring-green-500 border-green-300 rounded"
                   />
-                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                  <label htmlFor="remember-me" className="ml-2 block text-sm text-green-900">
                     Remember me
                   </label>
                 </div>
 
                 <div className="text-sm">
-                  <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                  <a href="#" className="font-medium text-green-600 hover:text-green-500">
                     Forgot your password?
                   </a>
                 </div>
@@ -188,7 +221,7 @@ const Login = () => {
                 className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white ${
                   isSubmitting
                     ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                    : 'bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500'
                 } transition-colors duration-200`}
               >
                 {isSubmitting ? (
@@ -208,13 +241,13 @@ const Login = () => {
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-gray-300" />
               </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+            <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-green-500">Or continue with</span>
               </div>
             </div>
 
             <div className="mt-6 grid grid-cols-2 gap-3">
-              <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors duration-200">
+            <button className="w-full inline-flex justify-center py-2 px-4 border border-green-300 rounded-md shadow-sm bg-white text-sm font-medium text-green-500 hover:bg-green-50 transition-colors duration-200">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                   <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -224,7 +257,7 @@ const Login = () => {
                 <span className="ml-2">Google</span>
               </button>
 
-              <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors duration-200">
+            <button className="w-full inline-flex justify-center py-2 px-4 border border-green-300 rounded-md shadow-sm bg-white text-sm font-medium text-green-500 hover:bg-green-50 transition-colors duration-200">
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>

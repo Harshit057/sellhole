@@ -57,7 +57,7 @@ const Home = () => {
     <div>
       {/* Hero Section */}
       <section
-        className="bg-gradient-to-br from-blue-50 to-purple-50 py-20 relative"
+        className="bg-gradient-to-br from-green-50 to-green-100 py-20 relative"
         style={{
           backgroundImage: `url(${background})`,
           backgroundSize: 'cover',
@@ -65,42 +65,49 @@ const Home = () => {
           backgroundRepeat: 'no-repeat',
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-40 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-green-50 to-green-200 opacity-40 pointer-events-none"></div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-green-900 mb-6">
               Empowering Rural India with{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                MittiKart
+              <span className="font-extrabold" style={{ color: '#6D4C41' }}>
+                आपनGaon
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-green-700 mb-8 max-w-3xl mx-auto">
               A digital marketplace connecting farmers and artisans from India's villages directly to urban consumers — ensuring fair prices, authentic products, and economic empowerment.
             </p>
             {/* Server Status */}
             <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-3 shadow-lg mb-8 relative z-10">
               {loading ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-                  <span className="text-gray-600">Checking server status...</span>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-green-600"></div>
+                  <span className="text-green-700">Checking server status...</span>
                 </>
               ) : (
                 <>
                   <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-gray-800 font-medium">{message}</span>
+                  <span className="text-green-900 font-medium">{message}</span>
                 </>
               )}
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/products"
-                className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
                 Shop Now
               </Link>
               <Link
+                to="/login?mode=signup"
+                className="bg-yellow-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-600 transition-colors duration-200 shadow-lg hover:shadow-xl"
+                style={{ minWidth: '140px' }}
+              >
+                Sell Now
+              </Link>
+              <Link
                 to="/about"
-                className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors duration-200 shadow-lg border border-blue-600"
+                className="bg-white text-green-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-50 transition-colors duration-200 shadow-lg border border-green-600"
               >
                 How It Works
               </Link>
@@ -110,11 +117,11 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">🌟 Why MittiKart?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-4xl font-bold text-green-900 mb-4">🌟 Why आपनGaon?</h2>
+            <p className="text-xl text-green-700 max-w-2xl mx-auto">
               We’re not just another e-commerce platform — we’re a movement to make rural India thrive. Every product you buy supports a family, a farmer, or an artisan.
             </p>
           </div>
@@ -122,13 +129,13 @@ const Home = () => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="text-center p-6 rounded-xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-200"
+                className="text-center p-6 rounded-xl bg-green-100 hover:bg-green-50 hover:shadow-lg transition-all duration-300 border border-transparent hover:border-green-200"
               >
                 <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <h3 className="text-xl font-semibold text-green-900 mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-gray-600">{feature.description}</p>
+                <p className="text-green-700">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -136,23 +143,23 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-green-600 to-blue-600">
+      <section className="py-20 bg-green-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">
+            <h2 className="text-4xl font-bold text-green-900 mb-4">
               Our Impact in Numbers
             </h2>
-            <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-              MittiKart is bridging the rural-urban gap through ethical trade and digital accessibility.
+            <p className="text-xl text-green-700 max-w-2xl mx-auto">
+              आपनGaon is bridging the rural-urban gap through ethical trade and digital accessibility.
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+                <div className="text-4xl md:text-5xl font-bold text-green-900 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-blue-100 text-lg">{stat.label}</div>
+                <div className="text-green-700 text-lg">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -160,24 +167,24 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900">
+      <section className="py-20 bg-green-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-green-900 mb-4">
             Be the Change. Buy Rural.
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-green-700 mb-8 max-w-2xl mx-auto">
             Every purchase supports a real person. Join our community of conscious consumers building a better India — one product at a time.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/contact"
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200"
+              to="/login?mode=signup"
+              className="bg-green-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-700 transition-colors duration-200"
             >
               Partner with Us
             </Link>
             <Link
               to="/products"
-              className="bg-white text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors duration-200"
+              className="bg-white text-green-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-green-50 transition-colors duration-200"
             >
               Browse Products
             </Link>
